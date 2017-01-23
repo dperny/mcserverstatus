@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drew's Minecraft Server Status</title>
+  <style>
+    main { max-width: 900px; margin: 1px auto }
+  </style>
+  </head>
+  <body>
+    <main>
+    <h1>Drew's Minecraft Server Status</h1>
+    {% if status is not none %}
+    <h2>Status: Up, probably</h2>
+    <h3>Players online: {{ status.players.online }}</h3>
+    <ul>
+      {% for player in status.players.sample %}
+      <li>{{ player.name }}</li>
+      {%- endfor %}
+    </ul>
+    {% else %}
+    <h2>Status: Down, probably</h2>
+    {%- endif %}
+    </main>
+  </body>
+</html>
