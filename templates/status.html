@@ -12,11 +12,13 @@
     {% if status is not none %}
     <h2>Status: Up, probably</h2>
     <h3>Players online: {{ status.players.online }}</h3>
+    {% if status.players.online is greaterthan 0 %}
     <ul>
       {% for player in status.players.sample %}
       <li>{{ player.name }}</li>
       {%- endfor %}
     </ul>
+    {%- endif %}
     {% else %}
     <h2>Status: Down, probably</h2>
     {%- endif %}
